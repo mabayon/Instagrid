@@ -77,12 +77,18 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="126"/>
                                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapPictureButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xsN-u4-3Xy"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mn-am-gdl">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mn-am-gdl">
                                                         <rect key="frame" x="145" y="0.0" width="125" height="126"/>
                                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapPictureButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="92u-GA-C1E"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -93,11 +99,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="126"/>
                                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapPictureButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6To-iZ-Ngw"/>
+                                                        </connections>
                                                     </button>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWE-tc-B81">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="126"/>
                                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapPictureButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfR-1F-Ht8"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -141,6 +153,9 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <outlet property="layoutOne" destination="Bd3-Y6-vsR" id="Dre-zO-9Nu"/>
+                                    <outlet property="layoutThree" destination="DkQ-iG-k5G" id="9zO-d7-dQf"/>
+                                    <outlet property="layoutTwo" destination="fld-1t-ETb" id="0Qx-rR-k7x"/>
                                     <outlet property="pictureFour" destination="FWE-tc-B81" id="gph-GF-xI1"/>
                                     <outlet property="pictureTwo" destination="1mn-am-gdl" id="IE8-zy-sxj"/>
                                 </connections>
@@ -316,6 +331,10 @@
                         <outletCollection property="layoutButtons" destination="Bd3-Y6-vsR" collectionClass="NSMutableArray" id="pIw-Vx-XFP"/>
                         <outletCollection property="layoutButtons" destination="fld-1t-ETb" collectionClass="NSMutableArray" id="R15-x6-3IO"/>
                         <outletCollection property="layoutButtons" destination="DkQ-iG-k5G" collectionClass="NSMutableArray" id="SqY-Zp-Tnk"/>
+                        <outletCollection property="pictureButtons" destination="iuI-gO-wae" collectionClass="NSMutableArray" id="JLO-Ke-jKg"/>
+                        <outletCollection property="pictureButtons" destination="1mn-am-gdl" collectionClass="NSMutableArray" id="PEN-u2-NTx"/>
+                        <outletCollection property="pictureButtons" destination="dHY-BJ-L2x" collectionClass="NSMutableArray" id="c3S-Zq-uOy"/>
+                        <outletCollection property="pictureButtons" destination="FWE-tc-B81" collectionClass="NSMutableArray" id="c06-c9-rtb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

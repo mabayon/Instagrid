@@ -10,14 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var pictureButtons: [UIButton]!
     @IBOutlet var layoutButtons: [LayoutButton]!
     @IBOutlet weak var picturesView: PicturesView!
+    
+    private var buttonTapped: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        for button in pictureButtons {
+            button.imageView?.contentMode = .scaleAspectFill
+        }
     }
-
+    
     @IBAction func didTapLayout(_ sender: Any) {
         
         // If the sender is not a layoutButton return
@@ -27,34 +34,14 @@ class ViewController: UIViewController {
         
         switch button.tag {
         case 1:
-
-            // If the button tapped is not selected
-            if layoutButtons[1].isSelected || layoutButtons[2].isSelected {
-                // Select the button
-                button.isSelected = true
-                // Deselect the others
-                layoutButtons[1].isSelected = false
-                layoutButtons[2].isSelected = false
-                picturesView.style = .first
-            }
-        case 2:
+            picturesView.style = .first
             
-            if layoutButtons[0].isSelected || layoutButtons[2].isSelected {
-                button.isSelected = true
-                layoutButtons[0].isSelected = false
-                layoutButtons[2].isSelected = false
-                picturesView.style = .second
-            }
+        case 2:
+            picturesView.style = .second
             
         case 3:
+            picturesView.style = .third
             
-            if layoutButtons[0].isSelected || layoutButtons[1].isSelected {
-                button.isSelected = true
-                
-                layoutButtons[0].isSelected = false
-                layoutButtons[1].isSelected = false
-                picturesView.style = .third
-            }
         default:
             break
         }
@@ -63,3 +50,33 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+   
+    @IBAction func didTapPictureButtons(_ sender: Any) {
+        // If the sender is not a UIButton return
+        guard let button = sender as? UIButton else  {
+            return
+        }
+        
+        buttonTapped = button
+        
+        let imagePicker = UIImagePickerController()
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        
+        present(imagePicker, animated: true, completion: nil)
+
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            buttonTapped?.setImage(image, for: .normal)
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+
+
+}
